@@ -1,0 +1,17 @@
+<ion-view view-title="Readings" id="readings-view">
+  <ion-content>
+    <div class="list card">
+      <div class="item item-divider">
+        Station #1
+      </div>
+      <div class="item row" ng-repeat="key in keys">
+          <span class="col col-50">{{key}}</span>
+          <span class="col col-50">
+            <span class="pull-right">
+              {{ data[key] }}
+            </span>
+          </span>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

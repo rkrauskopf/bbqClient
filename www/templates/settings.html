@@ -1,0 +1,18 @@
+<ion-view view-title="Settings">
+  <ion-header-bar class="bar-positive">Settings</ion-header-bar>
+  <ion-content>
+    <ion-list>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Server Url</span>
+        <input type="text" placeholder="http://yourUrl:portNumber" ng-model="settings.serverUrl"/>
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Refresh Rate (Seconds)</span>
+        <input type="number" placeholder="Seconds" ng-model="settings.pollRate"/>
+      </label>
+    </ion-list>
+  </ion-content>
+  <ion-footer-bar>
+    <button class="button button-full button-positive" ng-click="save()">Save</button>
+  </ion-footer-bar>
+</ion-view>
