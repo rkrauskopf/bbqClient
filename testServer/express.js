@@ -6,7 +6,7 @@ var app = express();
 
 app.use(cors({
   allowedOrigins: [
-    'http://localhost:*', 'https://localhost*  '
+    'http://localhost:*', 'https://localhost*'
   ]
 }));
 
@@ -24,6 +24,7 @@ app.get('/', function(req, res) {
     "uvList": uvList
   };
 
+  //this is a test commment
   res.send(jsonObj);
 });
 
