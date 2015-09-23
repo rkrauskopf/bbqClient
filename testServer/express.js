@@ -18,13 +18,30 @@ app.get('/', function(req, res) {
   var uvList       = _.random(200, 300);
 
   var jsonObj = {
-    "Temperature1": temperature1,
-    "Temperature2": temperature2,
-    "Temperature3": temperature3,
-    "uvList": uvList
+    'Temperature1': temperature1,
+    'Temperature2': temperature2,
+    'Temperature3': temperature3,
+    'uvList': uvList
   };
 
   res.send(jsonObj);
+});
+
+app.get('/settings', function(req, res) {
+
+  var jsonObj = {
+    'temperature1': 180,
+    'temperature2': 180,
+    'displayInput': "hello world",
+    'Power': false
+  };
+
+  res.send(jsonObj);
+
+});
+
+app.post('/settings', function(req, res) {
+  res.send(200);
 });
 
 var server = app.listen(3000, function () {
