@@ -1,0 +1,29 @@
+<ion-view view-title="Remote Settings" id="readings-view">
+  <ion-content>
+    <div class="list">
+      <li class="item item-input" ng-repeat="textInput in textInputs">
+          <span class="input-label">{{textInput.key}}</span>
+          <input type="text" ng-model="textInput.value">
+      </li>
+
+      <li class="item item-input" ng-repeat="numberInput in numberInputs">
+        <span class="input-label">{{numberInput.key}}</span>
+        <input type="number" ng-model="numberInput.value">
+      </li>
+
+      <li class="item item-toggle" ng-class="" ng-repeat="toggle in toggleInputs">
+        {{toggle.key}}
+        <label class="toggle toggle-assertive">
+          <input type="checkbox" ng-model="toggle.value">
+          <div class="track">
+            <div class="handle"></div>
+          </div>
+        </label>
+      </li>
+    </div>
+  </ion-content>
+  <ion-footer-bar>
+    <button class="button" type="button" ng-click="getSettings()">Get Latest Settings</button>
+    <button class="button button-calm" type="button" ng-click="updateSettings()">Update Settings</button>
+  </ion-footer-bar>
+</ion-view>
