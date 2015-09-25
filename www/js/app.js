@@ -25,14 +25,14 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     .state('app', {
       url: '/app',
       abstract: true,
-      templateUrl: 'templates/menu.html',
+      templateUrl: 'views/layouts/menu.html',
       controller: 'AppCtrl'
     })
     .state('app.readings', {
       url: '/readings',
       views: {
         'menuContent': {
-          templateUrl: 'templates/readings.html',
+          templateUrl: 'views/readings/readings.html',
           controller: 'ReadingsCtrl'
         }
       }
@@ -41,7 +41,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       url: '/graphs',
       views: {
         'menuContent': {
-          templateUrl: 'templates/graphs.html',
+          templateUrl: 'views/graphs/graphs.html',
           controller: 'GraphsCtrl'
         }
       }
@@ -50,7 +50,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       url: '/settings',
       views: {
         'menuContent': {
-          templateUrl: 'templates/settings.html',
+          templateUrl: 'views/settings/settings.html',
           controller: 'SettingsCtrl'
         }
       }
@@ -59,7 +59,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       url: '/remoteSettings',
       views: {
         'menuContent': {
-          templateUrl: 'templates/remoteSettings.html',
+          templateUrl: 'views/remoteSettings/remoteSettings.html',
           controller: 'RemoteSettingsCtrl'
         }
       }
@@ -68,7 +68,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       url: '/login',
       views: {
         'menuContent': {
-          templateUrl: 'templates/login.html',
+          templateUrl: 'views/login/login.html',
           controller: 'LoginCtrl'
         }
       }
@@ -77,7 +77,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       //url: '/stations',
       views: {
         'menuContent': {
-          templateUrl: 'templates/stations.html',
+          templateUrl: 'views/stations/stations.html',
           controller: 'StationsCtrl'
         }
       }
