@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers'])
+angular.module('starter', ['ionic'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -25,8 +25,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     .state('app', {
       url: '/app',
       abstract: true,
-      templateUrl: 'views/layouts/menu.html',
-      controller: 'AppCtrl'
+      templateUrl: 'views/layouts/menu.html'
     })
     .state('app.readings', {
       url: '/readings',
@@ -34,15 +33,6 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         'menuContent': {
           templateUrl: 'views/readings/readings.html',
           controller: 'ReadingsCtrl'
-        }
-      }
-    })
-    .state('app.graphs', {
-      url: '/graphs',
-      views: {
-        'menuContent': {
-          templateUrl: 'views/graphs/graphs.html',
-          controller: 'GraphsCtrl'
         }
       }
     })
@@ -69,7 +59,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       views: {
         'menuContent': {
           templateUrl: 'views/login/login.html',
-          controller: 'LoginCtrl'
+          controller: 'LoginCtrl as vm'
         }
       }
     })
@@ -78,7 +68,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       views: {
         'menuContent': {
           templateUrl: 'views/stations/stations.html',
-          controller: 'StationsCtrl'
+          controller: 'StationsCtrl as vm'
         }
       }
     });

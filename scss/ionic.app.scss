@@ -31,6 +31,18 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
   font-weight: bold;
 }
 
+#station-view {
+  i.show:before {
+    transform: rotate(90deg);
+  }
+  .stationName {
+    font-weight: bold;
+    text-decoration: underline;
+  }
 
+  .station-details {
+    margin-top: 1em;
+  }
+}
 
 

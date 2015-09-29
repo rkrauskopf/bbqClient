@@ -1,21 +1,21 @@
 <ion-view view-title="Login" id="login-view">
   <ion-content>
     <ion-list>
-      <ion-item ng-show="status.message">
-        <label>{{status.message}}</label>
+      <ion-item ng-show="vm.status.message">
+        <label>{{vm.status.message}}</label>
       </ion-item>
       <label class="item item-input">
         <span class="input-label">Email</span>
-        <input type="email" ng-model="inputs.email">
+        <input type="email" ng-model="vm.inputs.email">
       </label>
       <label class="item item-input">
         <span class="input-label">Password</span>
-        <input type="password" ng-model="inputs.password">
+        <input type="password" ng-model="vm.inputs.password">
       </label>
       <ion-checkbox>Remember Me</ion-checkbox>
     </ion-list>
   </ion-content>
   <ion-footer-bar>
-    <button class="button button-full button-positive" ng-click="login()">Login</button>
+    <button class="button button-full button-positive" ng-click="vm.login()">Login</button>
   </ion-footer-bar>
 </ion-view>

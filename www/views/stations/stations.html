@@ -1,7 +1,19 @@
 <ion-view view-title="Stations" id="station-view">
   <ion-content>
     <ion-list>
-
+      <li class="item" ng-repeat="station in vm.stations" ng-click="vm.toggleView(station)">
+        <!--<i class="icon ion-chevron-right" ng-class="{show: station.isCollapsed === false}"></i>-->
+        <span class="stationName">{{station.name}}</span>
+        <ul class="list station-details">
+          <li class="item" ng-hide="station.isCollapsed">
+            <strong>Description</strong>: <p>{{station.description}}</p>
+          </li>
+          <li class="item" ng-repeat="(key, value) in station.settings"
+                           ng-hide="station.isCollapsed">
+            <strong>{{key}}</strong>: {{value}}
+          </li>
+        </ul>
+      </li>
     </ion-list>
   </ion-content>
 </ion-view>
