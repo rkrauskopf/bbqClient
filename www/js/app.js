@@ -45,12 +45,12 @@ angular.module('starter', ['ionic'])
         }
       }
     })
-    .state('app.remoteSettings', {
-      url: '/remoteSettings',
+    .state('app.remoteStations', {
+      url: '/remoteStations',
       views: {
         'menuContent': {
-          templateUrl: 'views/remoteSettings/remoteSettings.html',
-          controller: 'RemoteSettingsCtrl'
+          templateUrl: 'views/remoteStations/remoteStations.html',
+          controller: 'RemoteStationsCtrl'
         }
       }
     })
@@ -71,6 +71,15 @@ angular.module('starter', ['ionic'])
           controller: 'StationsCtrl as vm'
         }
       }
+    })
+    .state('app.remoteStationsList', {
+      url: '/remoteStationsList',
+      views: {
+        'menuContent': {
+          templateUrl: 'views/remoteStationsList/remoteStationsList.html',
+          controller: 'RemoteStationsListCtrl as vm'
+        }
+      }
     });
-  $urlRouterProvider.otherwise('/app/readings');
+  $urlRouterProvider.otherwise('/app/remoteStations');
 });

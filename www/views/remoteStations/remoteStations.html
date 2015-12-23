@@ -1,0 +1,71 @@
+<ion-view view-title="Remote Stations" id="remote-stations-view">
+  <ion-content>
+    <div id="alerts" class="row">
+      <div class="col success" ng-show="successMessage">
+        {{successMessage}}
+        <i class="icon ion-close padding-right" ng-click="clearStatusMessages()"></i>
+      </div>
+
+      <div class="col error" ng-show="errorMessage">
+        {{errorMessage}}
+        <i class="icon ion-close padding-right" ng-click="clearStatusMessages()"></i>
+      </div>
+    </div>
+
+    <div class="list">
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Selected Station
+        </div>
+        <select>
+          <!--<option ng-repeat="item in list.options">{{item}}</option>-->
+        </select>
+      </label>
+
+      <div class="item">
+        <a class="button button-block button-balanced" href="#/app/remoteStationsList">
+          Add/Edit Station
+        </a>
+      </div>
+      <div class="item item-divider">
+        Settings
+      </div>
+      <li class="item item-input" ng-repeat="textInput in textInputs">
+          <span class="input-label">{{textInput.key}}</span>
+          <input type="text" ng-model="textInput.value">
+      </li>
+
+      <li class="item item-input" ng-repeat="numberInput in numberInputs">
+        <span class="input-label">{{numberInput.key}}</span>
+        <input type="number" ng-model="numberInput.value">
+      </li>
+
+      <li class="item item-toggle" ng-repeat="boolean in booleanInputs">
+        <span class="list-label">{{boolean.key}}</span>
+        <label class="toggle toggle-assertive">
+          <input type="checkbox" ng-model="boolean.value">
+          <div class="track">
+            <div class="handle"></div>
+          </div>
+        </label>
+      </li>
+
+      <label class="item item-input item-select" ng-repeat="list in listInputs">
+        <div class="input-label">
+          {{list.key}}
+        </div>
+        <select ng-model="list.selectedValue">
+          <option ng-repeat="item in list.options">{{item}}</option>
+        </select>
+      </label>
+    </div>
+  </ion-content>
+  <ion-footer-bar>
+    <button class="button" type="button" ng-click="getSettings()">Get Latest Settings</button>
+    <button class="button button-calm" type="button" ng-click="updateSettings()">Update Settings</button>
+  </ion-footer-bar>
+
+</ion-view>
+
+
+

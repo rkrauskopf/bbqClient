@@ -1,0 +1,26 @@
+#remote-stations-view {
+
+  .input-label {
+    font-weight: bold;
+  }
+
+  .list-label {
+    font-weight: bold;
+  }
+
+  #alerts {
+
+    .ion-close {
+      float: right;
+    }
+
+    .success {
+      background-color: $balanced;
+    }
+
+    .error {
+      background-color: $assertive;
+    }
+
+  }
+}

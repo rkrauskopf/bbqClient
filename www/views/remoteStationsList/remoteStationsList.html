@@ -1,0 +1,19 @@
+<ion-view id="remote-stations-list-view">
+  <ion-content>
+    <ion-list show-delete="true"
+              show-reorder="false"
+              can-swipe="true">
+
+      <ion-item ng-repeat="server in remoteStations">
+        {{server.name}}/{{server.url}}
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  <ion-footer-bar>
+    <button class="button" type="button" ng-click="addNewStation()">Add Station</button>
+  </ion-footer-bar>
+
+</ion-view>
+
+
+

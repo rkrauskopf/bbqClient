@@ -4,6 +4,22 @@ var cors = require('express-cors');
 
 var app = express();
 
+var settings = {
+  'temperature1': 180,
+  'temperature2': 180,
+  'displayInput': "hello world",
+  'Power': false,
+  'Fan': true,
+  'List': {
+    options: ['Left', 'Right', 'Up', 'Down'],
+    selectedValue: 'Up'
+  },
+  'Another List': {
+    options: ['1', '2', '3', '4'],
+    selectedValue: '2'
+  }
+};
+
 app.use(cors({
   allowedOrigins: [
     'http://localhost:*', 'https://localhost*'
@@ -30,14 +46,7 @@ app.get('/', function(req, res) {
 
 app.get('/settings', function(req, res) {
 
-  var jsonObj = {
-    'temperature1': 180,
-    'temperature2': 180,
-    'displayInput': "hello world",
-    'Power': false
-  };
-
-  res.send(jsonObj);
+  res.send(settings);
 
 });
 
