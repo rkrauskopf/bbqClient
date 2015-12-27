@@ -50,7 +50,7 @@ angular.module('starter', ['ionic'])
       views: {
         'menuContent': {
           templateUrl: 'views/remoteStations/remoteStations.html',
-          controller: 'RemoteStationsCtrl'
+          controller: 'RemoteStationsCtrl as vm'
         }
       }
     })
@@ -78,6 +78,18 @@ angular.module('starter', ['ionic'])
         'menuContent': {
           templateUrl: 'views/remoteStationsList/remoteStationsList.html',
           controller: 'RemoteStationsListCtrl as vm'
+        }
+      }
+    })
+    .state('app.newStation', {
+      url: '/newStation/:stationIndex',
+      views: {
+        'menuContent': {
+          templateUrl: 'views/newStation/newStation.html',
+          controller: 'NewStationCtrl as vm'
+          //params: {
+          //    stationIndex: 'test '
+          //}
         }
       }
     });

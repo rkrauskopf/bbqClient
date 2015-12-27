@@ -9735,6 +9735,24 @@ a.button {
 #remote-stations-view #alerts .error {
   background-color: #ef473a; }
 
+#remote-stations-list-view .station-item .button {
+  float: right;
+  margin-right: 10px; }
+
+#remote-stations-list-view .station-item .label {
+  font-weight: bold; }
+
+#remote-stations-list-view .station-item .name-url-wrapper {
+  display: inline-block; }
+
+#remote-stations-list-view .station-item .button-wrapper {
+  display: inline-block;
+  float: right;
+  margin-top: 1em; }
+
+#remote-stations-list-view .bar-footer button {
+  margin-top: 0; }
+
 .pull-right {
   float: right; }
 

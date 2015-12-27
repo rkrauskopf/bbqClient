@@ -1,0 +1,23 @@
+<ion-view id="new-station-view"
+          view-title="Create/Edit Station"
+          cache-view="false">
+  <ion-content>
+    <div class="list">
+      <label class="item item-input">
+        <input type="text" placeholder="Station Name" ng-model="vm.stationName">
+      </label>
+      <label class="item item-input">
+        <input type="text" placeholder="Station URL" ng-model="vm.stationUrl">
+      </label>
+      <label class="item">
+        <button type="button" class="button button-positive button-block"
+                ng-click="vm.saveStation()">
+          {{vm.btnLabel}}
+        </button>
+      </label>
+    </div>
+  </ion-content>
+</ion-view>
+
+
+

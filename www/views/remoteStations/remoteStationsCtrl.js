@@ -1,47 +1,55 @@
 (function() {
   angular.module('starter')
-    .controller('RemoteStationsCtrl', function($scope, $http, settings) {
+    .controller('RemoteStationsCtrl', function($http, $window, settings) {
 
-      $scope.textInputs = [];
-      $scope.numberInputs = [];
-      $scope.toggleInputs = [];
+      var vm = this;
 
-      $scope.getSettings = getSettings;
+      vm.textInputs = [];
+      vm.numberInputs = [];
+      vm.toggleInputs = [];
 
-      $scope.successMessage = '';
-      $scope.errorMessage = '';
+      vm.getSettings = getSettings;
 
-      $scope.clearStatusMessages = clearStatusMessages;
+      vm.successMessage = '';
+      vm.errorMessage = '';
+
+      vm.clearStatusMessages = clearStatusMessages;
+
+      vm.selectedStationUrl = '';
 
       activate();
 
       function activate() {
-        $scope.getSettings();
+        if(localStorage['remoteStations']) {
+          vm.remoteStations = JSON.parse(localStorage['remoteStations']) || [];
+        }
+        else {
+          vm.remoteStations = [];
+        }
 
-        $scope.remoteServers = localStorage['remoteServers'] || [];
       }
 
       function getSettings() {
-        $scope.textInputs = [];
-        $scope.numberInputs = [];
-        $scope.booleanInputs = [];
-        $scope.listInputs = [];
+        vm.textInputs = [];
+        vm.numberInputs = [];
+        vm.booleanInputs = [];
+        vm.listInputs = [];
 
         clearStatusMessages();
 
-        $http.get(settings.serverUrl + 'settings')
+        $http.get(vm.selectedStationUrl)
           .then(function(responseData) {
             formatData(responseData.data);
           })
           .catch(function(err) {
             console.log(err);
-            $scope.errorMessage = err.message;
+            vm.errorMessage = err.message;
           });
       }
 
       function clearStatusMessages() {
-        $scope.successMessage = '';
-        $scope.errorMessage = '';
+        vm.successMessage = '';
+        vm.errorMessage = '';
       }
 
       function formatData(data) {
@@ -49,7 +57,7 @@
         keys.forEach(function(key) {
 
           if(data[key]['options']) {
-            $scope.listInputs.push(
+            vm.listInputs.push(
               {
                 'key': key,
                 'options': data[key]['options'],
@@ -58,46 +66,49 @@
             );
           }
           else if (angular.isNumber(data[key])) {
-            $scope.numberInputs.push({key: key, value: data[key]});
+            vm.numberInputs.push({key: key, value: data[key]});
           }
           else if (angular.isString(data[key])) {
-            $scope.textInputs.push({key: key, value: data[key]});
+            vm.textInputs.push({key: key, value: data[key]});
           }
           else if (typeof(data[key] === 'boolean')) {
-            $scope.booleanInputs.push({key: key, value: data[key]});
+            vm.booleanInputs.push({key: key, value: data[key]});
           }
         });
       }
 
-      $scope.updateSettings = function() {
+      vm.updateSettings = function() {
 
         clearStatusMessages();
 
         var jsonObj = {};
 
-        $scope.textInputs.forEach(function(item) {
+        vm.textInputs.forEach(function(item) {
           jsonObj[item.key] = item.value;
         });
 
-        $scope.numberInputs.forEach(function(item) {
+        vm.numberInputs.forEach(function(item) {
           jsonObj[item.key] = item.value;
         });
 
-        $scope.toggleInputs.forEach(function(item) {
+        vm.toggleInputs.forEach(function(item) {
           jsonObj[item.key] = item.value;
         });
 
-        $scope.listInputs.forEach(function(item) {
+        vm.listInputs.forEach(function(item) {
           jsonObj[item.key] = {'selectedValue': item.selectedValue};
         });
 
-        $http.post(settings.serverUrl + 'settings', jsonObj)
-          .then(function() {
-            $scope.successMessage = 'Settings Updated Successfully!';
-          })
-          .catch(function(error) {
-            $scope.errorMessage = 'Error Updating Settings';
-          })
+
+        if($window.confirm('Are you sure you want to update these settings?')) {
+          $http.post(vm.selectedStationUrl, jsonObj)
+            .then(function () {
+              vm.successMessage = 'Settings Updated Successfully!';
+            })
+            .catch(function (error) {
+              vm.errorMessage = 'Error Updating Settings';
+            });
+        }
       };
     })
 })();

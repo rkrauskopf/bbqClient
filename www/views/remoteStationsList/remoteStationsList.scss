@@ -1,0 +1,26 @@
+#remote-stations-list-view {
+  .station-item {
+    .button {
+      float: right;
+      margin-right: 10px;
+    }
+
+    .label {
+      font-weight: bold;
+    }
+
+    .name-url-wrapper {
+      display: inline-block;
+    }
+
+    .button-wrapper {
+      display: inline-block;
+      float: right;
+      margin-top: 1em;
+    }
+  }
+
+  .bar-footer button {
+    margin-top: 0;
+  }
+}

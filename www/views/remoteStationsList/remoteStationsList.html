@@ -1,18 +1,30 @@
-<ion-view id="remote-stations-list-view">
+<ion-view id="remote-stations-list-view"
+          view-title="Remote Stations List"
+          cache-view="false">
   <ion-content>
-    <ion-list show-delete="true"
-              show-reorder="false"
-              can-swipe="true">
-
-      <ion-item ng-repeat="server in remoteStations">
-        {{server.name}}/{{server.url}}
-      </ion-item>
+    <ion-list>
+      <div class="item station-item"  ng-repeat="station in vm.remoteStations">
+        <div class="name-url-wrapper">
+          <span class="label">Name:</span>
+          {{station.name}}
+          <br/>
+          <span class="label">Url:</span>
+          {{station.url}}
+        </div>
+        <div class="button-wrapper">
+          <button class="button button-positive" ng-click="vm.deleteStation($index)">
+            <i class="icon ion-close"></i>
+          </button>
+          <button class="button button-positive" ui-sref="app.newStation({stationIndex: $index})">
+            <i class="icon ion-edit"></i>
+          </button>
+        </div>
+      </div>
     </ion-list>
   </ion-content>
-  <ion-footer-bar>
-    <button class="button" type="button" ng-click="addNewStation()">Add Station</button>
-  </ion-footer-bar>
-
+  <div class="bar bar-footer">
+    <button class="button button-full button-positive" type="button" ui-sref="app.newStation">Add Station</button>
+  </div>
 </ion-view>
 
 
